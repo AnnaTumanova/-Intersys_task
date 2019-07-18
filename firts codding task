@@ -1,0 +1,47 @@
+Coding task 1 
+Write a program that takes an array of size N as input and gives the output as an array in the reverse order. 
+The format of the input is as follow:
+
+N
+a1 a2 a3 a4 a5 … an
+
+'N' is the size of the array and a1, a2, a3, … an, are its elements. 
+Your program should give output (on the same line and separated by a space) as follows:
+an an-1 an-2 … a1
+
+using System;
+
+class ReverseOrder
+{
+  /* Function to reverse arr[] from  start to end*/
+    static void reversArray(int[] arr,int startnum, int endnum)
+    {
+        int temp;
+        while (startnum < endnum)
+        {
+            temp = arr[startnum];
+            arr[startnum] = arr[endnum];
+            arr[endnum] = temp;
+            startnum++;
+            endnum--;
+        }
+    }
+
+    /* First printing numbers in the correct order */
+    static void printArray(int[] arr,int size)
+    {
+        for (int i = 0; i < size; i++)
+            Console.Write(arr[i] + " ")
+        Console.WriteLine();
+    }
+    // Representation of the function
+    public static void Main()
+    {
+        int[] arr = { 1, 2, 3};
+        printArray(arr, 3);
+        rvereseArray(arr, 0, 3);
+        Console.Write("Reversed array is \n");
+        printArray(arr, 3);
+        Console.ReadLine();
+    }       
+}
