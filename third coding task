@@ -1,0 +1,54 @@
+using System; 
+using System.Collections.Generic; 
+	
+public class Permutaions { 
+	// Returns true if arr1[] and arr2[] are permutations of each other 
+	static Boolean Permutation(int []arr1, int []arr2) 
+	{ 
+		// Creates an empty hashMap hMap 
+		Dictionary<int, int> hMap = new Dictionary<int, int>(); 
+
+		// Traverse through the first array and add elements to hash map 
+		for (int i = 0; i < arr1.Length; i++) 
+		{ 
+			int x = arr1[i]; 
+			if (!hMap.ContainsKey(x)) 
+				hMap.Add(x, 1); 
+			else
+			{ 
+				int k = hMap[x]; 
+				hMap.Remove(x); 
+				hMap.Add(x, k+1); 
+			} 
+		} 
+
+		// Traverse through second array and check if every element is present in hash map 
+		for (int i = 0; i < arr2.Length; i++) 
+		{ 
+			int x = arr2[i]; 
+			// If element is not present in hash map or element is not present less number of times 
+			if (!hMap.ContainsKey(x)) 
+				return false; 
+			int k = hMap[x]; 
+			if (!hMap.ContainsKey(x)) 
+				hMap.Add(x, k-1); 
+			else{ 
+				int a = hMap[x]; 
+				hMap.Remove(x); 
+				hMap.Add(x, a+1); 
+			} 
+		} 
+		return true; 
+	} 
+
+	// Main code for execution 
+	public static void Main() 
+	{ 
+		int []arr1 = {1 2 5 3 7 0 7 3 5 2 1}; 
+		int []arr2 = {7 3 1 2 5 0 5 2 1 3 7}; 
+		if (arePermutations(arr1, arr2)) 
+			Console.WriteLine("YES"); 
+		else
+			Console.WriteLine("NO"); 
+	} 
+} 
