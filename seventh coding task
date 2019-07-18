@@ -1,0 +1,15 @@
+Write a function in JS fixage that receives an array of integers. The integers represent ages between 0 and 100. 
+The function is required to join all the integers that are between 18 and 60 into a string separated with a comma and returns it. 
+If there is no integer between 18 and 60, then the function returns "NA"
+
+var list = [2,23,4,5];
+var pol=[];
+for (var i in list)
+{
+  if (var i = 18; i <= 60; i++)
+  {pol.push(i);}
+    
+}
+else { 
+  alert("NA");
+  }
