@@ -1,0 +1,42 @@
+Write a program that takes an integer N (N between 2 and 20 inclusive), and an array of N integers as input. 
+Your program should output the most occurring digit that appears in the numbers of this array. 
+If more than one digit satisfies this condition, output the bigger one.
+
+using System; 
+          
+public class appeariece { 
+      
+    static int getOccurence(int n, int d) 
+    { 
+          
+        // Creating var result  
+        int result = 0; 
+      
+        // Count appearances in numbers  starting from d. 
+        int itr = d; 
+        while (itr <= n) 
+        { 
+              
+            // When the last digit is equal to d 
+            if (itr % 10 == d) 
+                result++; 
+      
+            // When the first digit is equal to d then 
+            if (itr != 0 && itr/10 == d) 
+            { 
+                  
+                // increment result as well as number 
+                result++; 
+                itr++; 
+            }           
+        return result; 
+    } 
+      
+    // Driver code 
+    public static void Main()  
+    { 
+        int n = 2, d = 20; 
+          
+        Console.Write(getOccurence(n, d)); 
+    } 
+} 
